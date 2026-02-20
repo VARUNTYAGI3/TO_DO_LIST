@@ -4,27 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An interactive to-do list application for managing daily tasks">
+    <title>To-Do List App</title>
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
 </head>
 
 <body>
     <div class="container">
-        <div class="todo-app">
-            <h2>To-Do List <img src="images/icon.png" alt=""></h2>
-            <div class="row">
-                <input type="text" id="input-bx" placeholder="Add Your Text">
-                <button onclick="add()">Add</button>
-            </div>
-            <div>
-                <ul id="list">
-                    <!-- <li class="checked">Task1</li>
-                    <li>Task2</li>
-                    <li>Task3</li> -->
+        <main class="todo-app">
+            <header class="app-header">
+                <h1>My Tasks <img src="images/icon.png" alt="task icon" class="app-icon"></h1>
+                <p class="task-counter">Total: <span id="task-count">0</span> | Completed: <span
+                        id="completed-count">0</span></p>
+            </header>
+
+            <section class="input-section">
+                <div class="input-group">
+                    <input type="text" id="input-bx" placeholder="Add a new task..." aria-label="New task input"
+                        autocomplete="off">
+                    <button id="add-btn" class="btn btn-add" aria-label="Add task">Add</button>
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all" aria-label="Show all tasks">All</button>
+                    <button class="filter-btn" data-filter="active" aria-label="Show active tasks">Active</button>
+                    <button class="filter-btn" data-filter="completed"
+                        aria-label="Show completed tasks">Completed</button>
+                </div>
+            </section>
+
+            <section class="task-section">
+                <ul id="list" class="task-list" role="list" aria-label="Task list">
                 </ul>
+                <div id="empty-state" class="empty-state">
+                    <p>No tasks yet. Add one to get started!</p>
+                </div>
+            </section>
+
+            <div class="action-buttons">
+                <button id="clear-completed" class="btn btn-secondary" aria-label="Clear completed tasks">Clear
+                    Completed</button>
             </div>
-        </div>
+        </main>
     </div>
+
     <script src="script.js"></script>
 </body>
 
